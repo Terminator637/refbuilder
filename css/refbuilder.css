@@ -1,0 +1,81 @@
+.ref_icon_folder, .ref_icon_root, .ref_icon_file {
+    background-image: url("icons.png") !important;
+}
+
+.ref_icon_root {
+    background-position: 0 -96px !important;
+}
+
+.ref_icon_file {
+    background-position: 0 -72px !important;
+}
+
+#ref_navigation {
+    overflow: auto;
+    margin: 0;
+    padding: 8px 0 0 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+}
+#ref_content {
+    border: none;
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    overflow: auto;
+    margin-left: 25%;
+    /*padding-left: 16px;
+    padding-top: 16px;*/
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#ref_navigation #ref_tab1, #ref_navigation #ref_tab2 {
+  display: none;
+}
+
+/* стили вкладок (табов) */
+#ref_navigation label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 5px 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #aaa;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  border-radius: 3px 3px 0 0;
+}
+
+/* изменения стиля заголовков вкладок при наведении */
+#ref_navigation label:hover {
+  color: #888;
+  cursor: pointer;
+}
+/* стили для активной вкладки */
+#ref_navigation input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 1px solid #009933;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+#ref_structure, #ref_index {
+  display: none;
+  border-top: 1px solid #ddd;
+}
+#ref_tab1:checked ~ #ref_structure, #ref_tab2:checked ~ #ref_index {
+  display: block;
+}
+
+#ref_idx_input, #ref_idx_search {
+  width: 100%;
+}
+#ref_idx_results {
+  width: 100%;
+}

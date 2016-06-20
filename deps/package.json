@@ -1,0 +1,16 @@
+{
+  "name": "deps",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "jstree": "^3.3.1",
+    "snowball": "^0.3.1"
+  }
+}
