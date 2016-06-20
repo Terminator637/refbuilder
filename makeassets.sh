@@ -26,5 +26,5 @@ else
 fi
 
 pushd assets
-find '!' -iname index > index
+find -mindepth 1 '!' -iname index |sed 's!^./!!' > index
 popd
