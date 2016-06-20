@@ -15,7 +15,7 @@ refbuilder /path/to/directory
 ## Building (if you intend to modify refbuilder)
 If you want to JS files to be minified - download Google Closure Compiler and put in `compiler.jar` in this directory.
 ```sh
-bash makeassets.sh # downloads javascript dependencies and makes assets directory. 
+bash makeassets.sh # downloads javascript dependencies and makes assets directory.
 bash makestatik.sh # builds statik package for embedding in resulting binary
 cd cmd/refbuilder && go build
 ```

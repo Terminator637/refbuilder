@@ -12,7 +12,7 @@ import (
     "fmt"
     "path/filepath"
     "sort"
-    _ "./statik"
+    _ "github.com/stiletto/refbuilder/statik"
     "regexp"
     "strings"
 )
