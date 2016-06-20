@@ -301,7 +301,7 @@ func main() {
 		defer f.Close()
 		src, err := sfs.Open("/" + finame)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Unable to open asset %s even though it is in asset index\n", finame, err)
+			fmt.Fprintf(os.Stderr, "Unable to open asset %s even though it is in asset index: %s\n", finame, err)
 			os.Exit(2)
 		}
 		defer src.Close()
