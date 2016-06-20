@@ -1,18 +1,23 @@
 language: go
 go:
+- 1.5
 - 1.6
+- tip
 go_import_path: github.com/stiletto/refbuilder
 script:
 - mkdir -p shit
 - echo '<html><body><h1>Test</h1>Just a test</body></html>' > shit/test.html
 - refbuilder shit
+before_deploy:
+- git describe --tags|tr '\n' '-' > .build-postfix
+- go version|sed 's/^go version //'|tr ' /' '-' >> .build-postfix
+- cp $GOPATH/bin/refbuilder refbuilder-$(cat .build-postfix)
 deploy:
   provider: releases
   api_key:
     secure: O/T3M/YxF1CgAX6Kv/YY1rw5YICyFZb3b/LYgnJ0mH+SoFy4ZC6ORj+m2BCV0fTTIjC47Ov8pNHjNL1UxIc/pYQrFRs5yKble+oYqsYF2udQTjkLNNQRplv2+qYjFFcWRTwfhK09W+qqew0MkZPm+xj4RPcIDFjYZjvlDT2VnMBCXjyW4tUCTp7zXViCiejBKZlr1MFHhVmmwKzGIBqsi07HgGRduQ19yWm6FLwDJvmtFEwMEi4jitJ3/VzPafh/TVT9HMYgfYUvEomvebhDpAmxZn0sDYc9K2ok2cSlWRpmrdIhKKNAidxtQExx5zFEohW4Qy+dlnAotYiTUjR+s/rC8AAAObhFBIUSjBFrNvsKMBr+u3PvJmx/iJCkLmSdmCg2aGWmA6gSbHJ7m5Hx+xQ8IIKuvleEXrBVm0WGfyt9h0Xw+nVyzUDrkNsd3xaCuKIIKeVWbGkHZoBA3/+PEjsCRqTeWoZieSz49ajWe7fx0wQ+Cx3xFBBgG67YjMEgoCix/UhLZyuCN37bFk9C371Fp8XSTorKV7I6Vt/CnVgLLWS5VzzIdY1H/te1znilvtPKGFbcrc9oiOJVqzeJXU2bKvMQFhPdXK4ekaiGDGy9te29WIF73DMQDG5EFvl+AjaulGzkzlothRNolEFhUxYeRVYy8h3NKFItASAK8us=
-  file: $GOPATH/bin/refbuilder
+  file: refbuilder-$(cat .build-postfix)
   skip_cleanup: true
   on:
     repo: stiletto/refbuilder
     tags: true
-

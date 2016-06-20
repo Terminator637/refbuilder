@@ -1,3 +1,4 @@
 assets/
 deps/node_modules/
 compiler.jar
+.build_postfix
