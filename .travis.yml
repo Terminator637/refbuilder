@@ -1,0 +1,9 @@
+language: go
+go:
+  - 1.6
+  - tip
+go_import_path: github.com/stiletto/refbuilder
+script:
+ - mkdir -p shit
+ - echo '<html><body><h1>Test</h1>Just a test</body></html>' > shit/test.html
+ - refbuilder shit
